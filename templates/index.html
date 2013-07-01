@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Mini-RPG</title>
+		<title>Sword Mania</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<script type="text/javascript" src="js/json2.js"></script>
 		<script type="text/javascript" src="js/oXHR.js"></script>
@@ -13,7 +13,16 @@
 		<script type="text/javascript" src="js/rpg.js"></script>
 	</head>
 	<body>
+		<div class="container">
+		<h1>Sword Mania</h1>
 		<canvas id="canvas"></canvas>
+		<div id="box">
+			<h3>Instructions: </h3>
+			<p>Grab the swords before the monster eats you up!</p>
+			<p>Use the arrows to move your character...</p>
+		</div>		
+	
+		</div>
 		<audio id="battleAudio">
   			<source src="/music/battle.ogg" type="audio/ogg">
   			Your browser does not support the audio tag.
@@ -30,5 +39,6 @@
   			<source src="/music/gameover.wav" type="audio/wav">
   			Your browser does not support the audio tag.
 		</audio>
+		
 	</body>
 </html>
