@@ -1,0 +1,34 @@
+application: udacity-timur-game
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /css
+  static_dir: css
+
+- url: /tilesets
+  static_dir: tilesets
+
+- url: /js
+  static_dir: js
+
+- url: /maps
+  static_dir: maps
+
+- url: /sprites
+  static_dir: sprites
+
+- url: /music
+  static_dir: music
+
+- url: /.*
+  script: udacity-timur-game.app
+
+libraries:
+- name: jinja2                                                                  
+  version: latest   
+
+builtins:
+- remote_api: on
