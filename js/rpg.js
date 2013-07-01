@@ -44,9 +44,9 @@ main = function(battleAudio) {
 			ctx.fillStyle = "white";
 			ctx.fillText('GAME OVER', 380, 400);
 			ctx.fillText('SCORE: '+ sword.score, 410, 440);
-			battleAudio.pause();
-			monster.grunt.pause();
 			if (soundPlayed == false) {
+				battleAudio.pause();
+				monster.grunt.pause();
 				gameOverSound.play();
 				soundPlayed = true;
 			}
