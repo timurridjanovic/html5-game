@@ -26,30 +26,17 @@ window.onload = function () {
 main = function(battleAudio) {
 	var canvas = document.getElementById('canvas');
 	var ctx = canvas.getContext('2d');
-	var gameOverSound = document.getElementById('gameover');
-	var soundPlayed = false;
 	
 	canvas.width  = 1000;
 	canvas.height = 800;
 	
 	
-	setInterval(function() {
+	var intervalId = setInterval(function() {
 		map.drawMap(ctx);
 		monster.drawMonster(ctx);
 		if (player.life <= 0) {
-			ctx.clearRect(0, 0, 1000, 800);
-			ctx.fillStyle = "black";
-			ctx.fillRect(0, 0, 1000, 800);
-			ctx.font = "bold 40px Arial";
-			ctx.fillStyle = "white";
-			ctx.fillText('GAME OVER', 380, 400);
-			ctx.fillText('SCORE: '+ sword.score, 410, 440);
-			if (soundPlayed == false) {
-				battleAudio.pause();
-				monster.grunt.pause();
-				gameOverSound.play();
-				soundPlayed = true;
-			}
+			gameover(ctx, battleAudio);
+			clearInterval(intervalId);
 		}
 	}, 40);
 
@@ -82,5 +69,25 @@ main = function(battleAudio) {
 		
 		return false;
 	}
+
+}
+
+gameover = function (ctx, battleAudio) {
+	var gameOverSound = document.getElementById('gameover');
+	var soundPlayed = false;
+
+
+	ctx.fillStyle = "black";
+	ctx.fillRect(0, 0, 1000, 800);
+	ctx.font = "bold 40px Arial";
+	ctx.fillStyle = "white";
+	ctx.fillText('GAME OVER', 380, 400);
+	ctx.fillText('SCORE: '+ sword.score, 410, 440);
+	if (soundPlayed == false) {
+		battleAudio.pause();
+		monster.grunt.pause();
+		gameOverSound.play();
+		soundPlayed = true;
+			}
 
 }
