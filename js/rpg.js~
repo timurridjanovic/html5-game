@@ -88,6 +88,6 @@ gameover = function (ctx, battleAudio) {
 		monster.grunt.pause();
 		gameOverSound.play();
 		soundPlayed = true;
-	}
+			}
 
 }
